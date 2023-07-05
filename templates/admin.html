@@ -1,0 +1,45 @@
+{% extends "header.html" %}
+
+{% block content %}
+  <h1>Page d'administration</h1>
+
+  <table>
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Pseudo</th>
+        <th>Mot de passe</th>
+        <th>Description</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for user in users %}
+      <tr>
+        <td>{{ user[0] }}</td>
+        <td class="form-field">
+          <form method="POST" action="{{ url_for('update_user', user_id=user[0]) }}">
+            <input type="text" name="new_username" value="{{ user[1] }}">
+            <input type="hidden" name="user_id" value="{{ user[0] }}">
+          </td>
+          <td class="form-field">
+            <input type="text" name="new_password" value="{{ user[2] }}">
+          </td>
+          <td class="form-field">
+            <input type="text" name="new_description" value="{{ user[3] }}">
+          </td>
+          <td class="form-field">
+            <button type="submit">Modifier</button>
+          </form>
+        </td>
+        <td>
+          <form method="POST" action="{{ url_for('delete_user', username=user[1]) }}">
+            <button type="submit">Supprimer</button>
+          </form>
+        </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>  
+
+{% endblock %}

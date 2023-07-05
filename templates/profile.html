@@ -1,0 +1,24 @@
+{% extends "header.html" %}
+
+{% block title %}Inscription{% endblock %}
+
+{% block content %}
+
+  <h1>Profil utilisateur</h1>
+
+  {% if user %}
+
+    <form method="POST" action="{{ url_for('profile') }}">
+        <label for="new_username">Nouveau Pseudo</label>
+        <input type="text" id="new_username" name="new_username" value="{{ user[1] }}">
+        <label for="password">Mot de passe</label>
+        <input type="password" id="password" name="password" value="{{ user[2] }}">
+        <label for="description">Description</label>
+        <textarea id="description" name="description">{{ user[3] }}</textarea>
+        <button type="submit">Enregistrer</button>
+    </form>
+  
+
+  {% endif %}
+
+{% endblock %}

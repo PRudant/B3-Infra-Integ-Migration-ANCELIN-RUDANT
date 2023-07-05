@@ -1,0 +1,23 @@
+<!-- form.html -->
+{% extends "header.html" %}
+
+{% block title %}Inscription{% endblock %}
+
+{% block content %}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Formulaire</title>
+</head>
+<body>
+    <h1>Formulaire</h1>
+    <form method="POST" action="/form">
+        <label for="text">Champ texte:</label>
+        <input type="text" id="text" name="text" required><br>
+
+        <input type="submit" value="Envoyer le formulaire">
+    </form>
+</body>
+</html>
+{% endblock %}

@@ -1,0 +1,23 @@
+<!-- delete.html -->
+{% extends "header.html" %}
+
+{% block title %}Inscription{% endblock %}
+
+{% block content %}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Supprimer le compte</title>
+</head>
+<body>
+    <h1>Supprimer le compte</h1>
+    <form method="POST" action="/delete">
+        <label for="username">Nom d'utilisateur:</label>
+        <input type="text" id="username" name="username" required><br>
+
+        <input type="submit" value="Supprimer le compte">
+    </form>
+</body>
+</html>
+{% endblock %}

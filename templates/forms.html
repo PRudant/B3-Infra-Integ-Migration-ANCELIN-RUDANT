@@ -1,0 +1,23 @@
+<!-- forms.html -->
+{% extends "header.html" %}
+
+{% block title %}Liste des formulaires{% endblock %}
+
+{% block content %}
+    <h1>Liste des formulaires</h1>
+    <!-- Contenu spécifique à la page "forms" -->
+    {% if forms %}
+        <ul>
+            {% for form in forms %}
+                <li>{{ form }}
+                    <form method="POST" action="/delete_form/{{ loop.index }}" style="display:inline;">
+                        <input type="hidden" name="_method" value="DELETE">
+                        <button type="submit">Supprimer</button>
+                    </form>
+                </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>Aucun formulaire disponible.</p>
+    {% endif %}
+{% endblock %}
